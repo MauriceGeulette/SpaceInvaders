@@ -4,7 +4,7 @@ import os
 go_to_the_game = False
 pause_sounds = False
 mouse_up = False
-score = 49
+score = 0
 
 while True:
     if not go_to_the_game:
