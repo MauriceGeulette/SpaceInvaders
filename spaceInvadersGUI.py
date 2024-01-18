@@ -27,6 +27,7 @@ win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 pygame.display.set_caption("Space Invaders")
 clock = pygame.time.Clock()
 stop_meteor = True
+boss_clock =  0
 
 pygame.mixer.init()
 pygame.mixer.music.load(path.join(sound_dir, 'through_space.ogg'))
