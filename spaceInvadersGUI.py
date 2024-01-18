@@ -27,6 +27,7 @@ win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 pygame.display.set_caption("Space Invaders")
 clock = pygame.time.Clock()
 stop_meteor = True
+boss_clock =  0
 
 pygame.mixer.init()
 pygame.mixer.music.load(path.join(sound_dir, 'through_space.ogg'))
@@ -37,6 +38,7 @@ user_score = Label(x=270, y=20, text="Score: 0", color=WHITE, size=40)
 stop_bg_music = Button(440, 0, 100, 23, 'Stop sounds')
 shoot_sound = pygame.mixer.Sound(path.join(sound_dir, 'pew.wav'))
 background = pygame.image.load(path.join(img_dir, 'spaceBG.png')).convert()
+background_StartScreen = pygame.image.load(path.join(img_dir, 'StartScreenBG.png')).convert()
 my_player_img = pygame.image.load(path.join(img_dir, 'spaceShip.png')).convert()
 my_boss_img = pygame.image.load(path.join(img_dir, 'spaceShip3.png')).convert()
 my_meteor_img = pygame.image.load(path.join(img_dir, 'meteor.png')).convert()
@@ -111,22 +113,23 @@ def create_meteor():
     meteors.add(meteor)
 
 def create_boss():
-    boss = Boss(win, my_boss_img)
+    boss = Boss(win, my_boss_img, random.randint(3, 5)
     all_sprites.add(boss)
 
-
-for i in range(9):
+while boss_clock!= 100:
+  for i in range(9):
     img_name = 'regularExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(explosion_img_dir, img_name)).convert()
     img.set_colorkey(BLACK)
     img_lg = pygame.transform.scale(img, (75, 75))
     explosion_animation_dict['large'].append(img_lg)
-    img_sm = pygame.transform.scale(img, (32, 32))
+    img_sm = pygame.transform.scale(img, (32, 32))      
     explosion_animation_dict['small'].append(img_sm)
     create_meteor()
-
-
     
+create_boss()
+boss_clock = 0
+
 explosions_sounds = []
 for sound in ['expl2.wav', 'expl2.wav']:
     explosions_sounds.append(pygame.mixer.Sound(path.join(sound_dir, sound)))
@@ -134,18 +137,3 @@ for sound in ['expl2.wav', 'expl2.wav']:
 def create_explosion(p_explosion_loc, p_explosion_size):
     my_explosion = Explosion(p_explosion_loc, p_explosion_size, explosion_animation_dict[p_explosion_size], explosions_sounds)
     all_sprites.add(my_explosion)
-
-
-    
-                    
-            
-    
-
-
-
-
-
-
-
-
-

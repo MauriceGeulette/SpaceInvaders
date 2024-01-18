@@ -4,7 +4,7 @@ import os
 go_to_the_game = False
 pause_sounds = False
 mouse_up = False
-score = 49
+score = 0
 
 while True:
     if not go_to_the_game:
@@ -51,6 +51,7 @@ while True:
     bullet_and_meteor_collide = pygame.sprite.groupcollide(meteors, my_player.bullets, True, True)
     for collision in bullet_and_meteor_collide:
         score += 1
+        boss_clock += 0.5
         if score == 50:
             create_boss()
         new_high_score = score
@@ -74,6 +75,7 @@ while True:
 
             if not game_over(message):
                 score = 0
+                boss_clock = 0
                 user_score.set_text(str(score))
                 my_shieldbar.shield_pct = 100
                 go_to_the_game = False
