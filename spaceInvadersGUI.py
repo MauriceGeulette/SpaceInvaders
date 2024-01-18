@@ -113,7 +113,7 @@ def create_meteor():
     meteors.add(meteor)
 
 def create_boss():
-    boss = Boss(win, my_boss_img)
+    boss = Boss(win, my_boss_img, random.randint(3, 5)
     all_sprites.add(boss)
 
 while boss_clock!= 100:
