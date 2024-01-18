@@ -114,14 +114,14 @@ def create_boss():
     boss = Boss(win, my_boss_img)
     all_sprites.add(boss)
 
-
-for i in range(9):
+while score != 150:
+  for i in range(9):
     img_name = 'regularExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(explosion_img_dir, img_name)).convert()
     img.set_colorkey(BLACK)
     img_lg = pygame.transform.scale(img, (75, 75))
     explosion_animation_dict['large'].append(img_lg)
-    img_sm = pygame.transform.scale(img, (32, 32))
+    img_sm = pygame.transform.scale(img, (32, 32))      
     explosion_animation_dict['small'].append(img_sm)
     create_meteor()
 
