@@ -74,6 +74,7 @@ while True:
 
             if not game_over(message):
                 score = 0
+                boss_
                 user_score.set_text(str(score))
                 my_shieldbar.shield_pct = 100
                 go_to_the_game = False
