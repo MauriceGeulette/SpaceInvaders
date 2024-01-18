@@ -9,7 +9,7 @@ BLUE = (0, 0, 255)
 
 
 class Boss(pygame.sprite.Sprite):
-    def __init__(self, p_win, p_boss_image):
+    def __init__(self, p_win, p_boss_image, p_damage):
         pygame.sprite.Sprite.__init__(self)
         self.winWidth = p_win.get_width()
         self.winHeight = p_win.get_height()
@@ -20,6 +20,7 @@ class Boss(pygame.sprite.Sprite):
         self.rect.x = random.randrange(self.winWidth)
         self.rect.y = -0
         self.speedX = random.randrange(-3, 3)
+        self.damage = p_damage
 
     def update(self):
         self.rect.x += self.speedX
