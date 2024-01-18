@@ -115,7 +115,7 @@ def create_boss():
     boss = Boss(win, my_boss_img)
     all_sprites.add(boss)
 
-while score != 150:
+while boss_clock!= 100:
   for i in range(9):
     img_name = 'regularExplosion0{}.png'.format(i)
     img = pygame.image.load(path.join(explosion_img_dir, img_name)).convert()
@@ -125,9 +125,10 @@ while score != 150:
     img_sm = pygame.transform.scale(img, (32, 32))      
     explosion_animation_dict['small'].append(img_sm)
     create_meteor()
-
-
     
+create_boss()
+boss_clock = 0
+
 explosions_sounds = []
 for sound in ['expl2.wav', 'expl2.wav']:
     explosions_sounds.append(pygame.mixer.Sound(path.join(sound_dir, sound)))
