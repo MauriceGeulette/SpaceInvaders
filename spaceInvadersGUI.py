@@ -136,18 +136,3 @@ for sound in ['expl2.wav', 'expl2.wav']:
 def create_explosion(p_explosion_loc, p_explosion_size):
     my_explosion = Explosion(p_explosion_loc, p_explosion_size, explosion_animation_dict[p_explosion_size], explosions_sounds)
     all_sprites.add(my_explosion)
-
-
-    
-                    
-            
-    
-
-
-
-
-
-
-
-
-
