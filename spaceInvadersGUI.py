@@ -21,7 +21,6 @@ BLUE = (0, 0, 255)
 MY_COLOR = (139, 247, 192)
 
 img_dir = path.join(path.dirname(__file__), 'img')
-explosion_img_dir = path.join(path.dirname(__file__), 'img/Explosions')
 sound_dir = path.join(path.dirname(__file__), 'sounds')
 win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 pygame.display.set_caption("Space Invaders")
@@ -41,21 +40,19 @@ background = pygame.image.load(path.join(img_dir, 'spaceBG.png')).convert()
 background_StartScreen = pygame.image.load(path.join(img_dir, 'StartScreenBG.png')).convert()
 my_player_img = pygame.image.load(path.join(img_dir, 'spaceShip.png')).convert()
 my_boss_img = pygame.image.load(path.join(img_dir, 'spaceShip3.png')).convert()
-my_meteor_img = pygame.image.load(path.join(img_dir, 'meteor.png')).convert()
+my_meteor_img = pygame.image.load(path.join(img_dir, 'Monster.png')).convert()
 my_bullet_img = pygame.image.load(path.join(img_dir, 'bullet.png')).convert()
 my_player = Player(win, my_player_img, my_bullet_img, shoot_sound)
 my_shieldbar = ShieldBar(win, 10, 10)
 
 meteor_images = []
-meteor_list = ["meteor1.png", "meteor2.png", "meteor3.png", "meteor4.png", "meteor5.png",
-               "meteor6.png", "meteor7.png", "meteor8.png", "meteor9.png"]
+meteor_list = ["meteor1.png", "meteor2.png", "meteor3.png", "meteor4.png"]
+
 for img in meteor_list:
     meteor_images.append(pygame.image.load(path.join(img_dir, img)))
     
 all_sprites = pygame.sprite.Group()
 all_sprites.add(my_player)
-
-explosion_animation_dict = {'large': [], 'small': []}
 meteors = pygame.sprite.Group()
 
 boss = pygame.sprite.Group()
@@ -133,7 +130,3 @@ boss_clock = 0
 explosions_sounds = []
 for sound in ['expl2.wav', 'expl2.wav']:
     explosions_sounds.append(pygame.mixer.Sound(path.join(sound_dir, sound)))
-    
-def create_explosion(p_explosion_loc, p_explosion_size):
-    my_explosion = Explosion(p_explosion_loc, p_explosion_size, explosion_animation_dict[p_explosion_size], explosions_sounds)
-    all_sprites.add(my_explosion)
