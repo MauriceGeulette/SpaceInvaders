@@ -26,14 +26,6 @@ class InputBox:
         self.rect.center = (x, y)
         self.active = False
 
-        """
-        :param x: X location
-        :param y: Y location
-        :param width: Default width is 100
-        :param height: Default height is 21
-        :param text: Default is empty
-        :param text_color: Default text color is black
-        """
     def handle_event(self, event):
         if event.type == pygame.MOUSEBUTTONDOWN:
             # If the user clicked on the input_box rect.
