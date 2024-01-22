@@ -72,7 +72,7 @@ def play_sounds():
 def show_opening_screen():
     win.blit(background, (0, 0))
     title = Label(x=250, y=200, text='Space Invaders', color=WHITE, size=65)
-    credit = Label(x=250, y=500, text='TekkieUni and MG', color=WHITE, size=25)
+    credit = Label(x=250, y=500, text='MauriceGeulette', color=WHITE, size=25)
     game_instructions = Label(x=250, y=400, text='To move use the arrows, to fire use space.', color=WHITE, size=30)
     start = Button(250, 330, 90, 23, text='Start')
     game_instructions.draw(win)
