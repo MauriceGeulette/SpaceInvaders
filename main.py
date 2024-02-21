@@ -52,7 +52,7 @@ while True:
     for collision in bullet_and_meteor_collide:
         score += 1
         boss_clock += 0.5
-        if score == 50:
+        if boss_clock == 50:
             create_boss()
         new_high_score = score
         user_score.set_text('Score: ' + str(score))
