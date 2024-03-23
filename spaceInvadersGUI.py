@@ -122,10 +122,6 @@ while boss_clock!= 100:
     img = pygame.image.load(path.join(explosion_img_dir, img_name)).convert()
     img.set_colorkey(BLACK)
     img_lg = pygame.transform.scale(img, (75, 75))
-    explosion_animation_dict['large'].append(img_lg)
-    img_sm = pygame.transform.scale(img, (32, 32))      
-    explosion_animation_dict['small'].append(img_sm)
-    create_meteor()
     
 create_boss()
 boss_clock = 0
